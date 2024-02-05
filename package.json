@@ -1,0 +1,27 @@
+{
+  "name": "shadbun",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "syncyarn": "bun bun.lockb",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.4.1",
+    "@astrojs/mdx": "^2.1.1",
+    "@astrojs/react": "^3.0.9",
+    "@types/react": "^18.2.54",
+    "@types/react-dom": "^18.2.18",
+    "astro": "^4.3.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.0.4"
+  }
+}
