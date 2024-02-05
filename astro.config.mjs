@@ -4,6 +4,7 @@ import mdx from "@astrojs/mdx";
 import tailwind from "@astrojs/tailwind";
 import sitemap from "@astrojs/sitemap";
 import yaml from "@rollup/plugin-yaml";
+import tina from "astro-tina";
 
 import partytown from "@astrojs/partytown";
 
@@ -22,5 +23,6 @@ export default defineConfig({
   sitemap({
     entryLimit: 10000
   }), 
-  partytown()]
+  partytown(),
+  tina()]
 });

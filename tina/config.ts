@@ -24,6 +24,13 @@ export default defineConfig({
         label: "Blog",
         path: "src/content/blog",
         format: 'mdx',
+        ui: {
+          allowedActions: {
+            create: true,
+            delete: true,
+          },
+          router: () => '/',
+        },
         fields: [
           {
             type: "string",
