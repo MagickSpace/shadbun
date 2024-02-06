@@ -27,8 +27,8 @@ export default defineConfig({
 				format: 'mdx',
         ui: {
           allowedActions: {
-            create: false,
-            delete: false,
+            create: true,
+            delete: true,
           },
           router: () => '/',
         },
