@@ -7,16 +7,31 @@ import yaml from "@rollup/plugin-yaml";
 import tina from "astro-tina";
 
 import partytown from "@astrojs/partytown";
-
+import { remarkReadingTime } from './src/utils/readTime.ts'
 // https://astro.build/config
 export default defineConfig({
   vite: {
     plugins: [yaml()]
   },
   site: 'https://shadbun.vercel.app',
-  integrations: [
+  markdown: {
+		remarkPlugins: [remarkReadingTime],
+		drafts: true,
+		shikiConfig: {
+			theme: 'material-theme-palenight',
+			wrap: true
+		}
+	},
+	integrations: [
+		mdx({
+			syntaxHighlight: 'shiki',
+			shikiConfig: {
+				theme: 'material-theme-palenight',
+				wrap: true
+			},
+			drafts: true
+		}),
     react(), 
-    mdx(), 
     tailwind({
     applyBaseStyles: false,
   }), 
