@@ -27,8 +27,8 @@ export default defineConfig({
         ui: {
           global: true,
           allowedActions: {
-            create: false,
-            delete: false,
+            create: true,
+            delete: true,
           },
         },
         fields: [
