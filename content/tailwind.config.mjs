@@ -1,5 +1,4 @@
 const { fontFamily } = require('tailwindcss/defaultTheme')
-const defaultTheme = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config} */
 export const darkMode = ['class']
@@ -16,12 +15,8 @@ export const theme = {
   },
   extend: {
     fontFamily: {
-      body: ['Manrope', ...defaultTheme.fontFamily.sans],
       sans: ['Inter', ...fontFamily.sans],
       heading: ['CalSans Semibold', ...fontFamily.sans],
-    },
-    gridTemplateColumns: {
-      list: 'repeat(auto-fill, minmax(400px, max-content))',
     },
     height: {
       18: '4.5rem',
@@ -30,7 +25,6 @@ export const theme = {
       18: '4.5rem',
     },
     colors: {
-      white: '#f8f9fa',
       brand: {
         50: '#F0FFFF',
         100: '#D6FFFE',

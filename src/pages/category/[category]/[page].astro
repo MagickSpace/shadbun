@@ -8,22 +8,22 @@ import { siteConfig } from '@/data/site.config'
 import Pagination from '@/components/Pagination'
 
 export async function getStaticPaths({ paginate }: any) {
-	const categories = await getCategories()
-	const allPosts = await getPosts()
+  const categories = await getCategories()
+  const allPosts = await getPosts()
 
-	return categories.flatMap((category: string) => {
-		const unsluglifyNameCategory = unsluglify(category!.toLowerCase())
-		const filteredPosts = allPosts.filter(
-			(post) => post.data.category.toLowerCase() === unsluglifyNameCategory
-		)
+  return categories.flatMap((category: string) => {
+    const unsluglifyNameCategory = unsluglify(category!.toLowerCase())
+    const filteredPosts = allPosts.filter(
+      (post) => post.data.category.toLowerCase() === unsluglifyNameCategory,
+    )
 
-		return paginate(filteredPosts, {
-			params: {
-				category: sluglify(category.toLowerCase())
-			},
-			pageSize: siteConfig.paginationSize
-		})
-	})
+    return paginate(filteredPosts, {
+      params: {
+        category: sluglify(category.toLowerCase()),
+      },
+      pageSize: siteConfig.paginationSize,
+    })
+  })
 }
 const params = Astro.params
 const { page } = Astro.props
@@ -33,8 +33,8 @@ const posts = page.data
 ---
 
 <BaseLayout title={params.category}>
-	<TitlePage title={unsluglifyNameCategory} />
-	<ListCategories activeCategory={params.category} />
-	<ListPosts posts={posts} />
-	<Pagination page={page} />
+  <TitlePage title={unsluglifyNameCategory} />
+  <ListCategories activeCategory={params.category} />
+  <ListPosts posts={posts} />
+  <Pagination page={page} />
 </BaseLayout>

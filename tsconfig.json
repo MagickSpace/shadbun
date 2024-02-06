@@ -2,8 +2,9 @@
   "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "types": ["@types/bun", "@types/node"],
     "target": "ESNext",
-    "module": "ESNext",
+    "module": "NodeNext",
     "moduleDetection": "force",
     "allowJs": true,
     "allowImportingTsExtensions": true,
@@ -20,22 +21,21 @@
     "moduleResolution": "NodeNext",
     "jsxImportSource": "react",
     "baseUrl": ".",
-		"paths": {
+    "paths": {
       "@/*": ["./src/*"],
-			"@/components/*": ["./src/components/*.astro"],
-			"@/layouts/*": ["./src/layouts/*.astro"],
-			"@/utils": ["./src/utils/index.ts"],
-			"@/data/*": ["./src/data/*"],
-			"@/site-config": ["./src/data/site.config.ts"],
-			"@/styles": ["./src/styles/"]
-      },
-      "plugins": [
-        {
-          "name": "@astrojs/ts-plugin"
-        }
-      ]
+      "@/components/*": ["./src/components/*.astro"],
+      "@/layouts/*": ["./src/layouts/*.astro"],
+      "@/utils": ["./src/utils/index.ts"],
+      "@/data/*": ["./src/data/*"],
+      "@/site-config": ["./src/data/site.config.ts"],
+      "@/styles": ["./src/styles/"]
     },
-    "include": ["./src/env.d.ts", "**/*.ts", "**/*.tsx", "tailwind.config.mjs"],
-    "exclude": ["node_modules", "dist"]
-  }
-  
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ]
+  },
+  "include": ["./src/env.d.ts", "**/*.ts", "**/*.tsx", "tailwind.config.mjs"],
+  "exclude": ["node_modules", "**/node_modules/*", ".vscode", "dist"]
+}
