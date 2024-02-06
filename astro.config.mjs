@@ -5,13 +5,16 @@ import tailwind from '@astrojs/tailwind'
 import sitemap from '@astrojs/sitemap'
 import yaml from '@rollup/plugin-yaml'
 import tina from 'astro-tina'
-
+import million from "million/compiler";
 import partytown from '@astrojs/partytown'
 import { remarkReadingTime } from './src/utils/readTime.ts'
 // https://astro.build/config
 export default defineConfig({
   vite: {
-    plugins: [yaml()],
+    plugins: [million.vite({ mode: "react", server: true, auto: {
+      threshold: 0.05,
+      skip: ["useBadHook", /badVariable/g],
+    }, }), yaml()],
   },
   site: 'https://shadbun.vercel.app',
   markdown: {

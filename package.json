@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "preinst": "npm install -g bun && yarn install && bun install --yarn",
     "dev": "npx tinacms dev -c \"astro dev --port 8080\"",
     "start": "astro dev",
     "build": "tinacms build && astro build",
@@ -40,6 +41,7 @@
     "lint-staged": "15.2.2",
     "lucide-react": "^0.323.0",
     "mdast-util-to-string": "^4.0.0",
+    "million": "^3.0.2",
     "motion": "^10.16.4",
     "pagefind": "^1.0.3",
     "prettier": "^3.2.5",
