@@ -1,5 +1,5 @@
 {
-  "extends": "astro/tsconfigs/strict",
+  "extends": "astro/tsconfigs/base",
   "compilerOptions": {
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "target": "ESNext",
@@ -17,15 +17,25 @@
     "useUnknownInCatchVariables": true,
     "noPropertyAccessFromIndexSignature": true,
     "jsx": "react-jsx",
+    "moduleResolution": "NodeNext",
     "jsxImportSource": "react",
     "baseUrl": ".",
 		"paths": {
-			"@/components/*": ["src/components/*.astro"],
-			"@/layouts/*": ["src/layouts/*.astro"],
-			"@/utils": ["src/utils/index.ts"],
-			"@/data/*": ["src/data/*"],
-			"@/site-config": ["src/data/site.config.ts"],
-			"@/styles": ["src/styles/"]
-		},
-	},
-}
+      "@/*": ["./src/*"],
+			"@/components/*": ["./src/components/*.astro"],
+			"@/layouts/*": ["./src/layouts/*.astro"],
+			"@/utils": ["./src/utils/index.ts"],
+			"@/data/*": ["./src/data/*"],
+			"@/site-config": ["./src/data/site.config.ts"],
+			"@/styles": ["./src/styles/"]
+      },
+      "plugins": [
+        {
+          "name": "@astrojs/ts-plugin"
+        }
+      ]
+    },
+    "include": ["./src/env.d.ts", "**/*.ts", "**/*.tsx", "tailwind.config.mjs"],
+    "exclude": ["node_modules", "dist"]
+  }
+  

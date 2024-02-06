@@ -1,17 +1,34 @@
 {
-	"extends": "astro/tsconfigs/strict",
-	"compilerOptions": {
-		"strictNullChecks": true,
-		"baseUrl": ".",
-		"verbatimModuleSyntax": true,
-		"paths": {
-			"@/components/*": ["src/components/*.astro"],
-			"@/layouts/*": ["src/layouts/*.astro"],
-			"@/utils": ["src/utils/index.ts"],
-			"@/data/*": ["src/data/*"],
-			"@/site-config": ["src/data/site.config.ts"],
-			"@/styles": ["src/styles/"]
-		}
-	},
-	"exclude": ["node_modules", "**/node_modules/*", ".vscode", "dist"]
+  "extends": "astro/tsconfigs/base",
+  "compilerOptions": {
+    "types": ["bun-types"],
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "bundler",
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "moduleDetection": "force",
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "composite": true,
+    "downlevelIteration": true,
+    "allowSyntheticDefaultImports": true,
+    "jsxImportSource": "react",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "verbatimModuleSyntax": true,
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ]
+  },
+  "include": ["./src/env.d.ts", "**/*.ts", "**/*.tsx", "tailwind.config.mjs"],
+  "exclude": ["node_modules", "dist"]
 }
