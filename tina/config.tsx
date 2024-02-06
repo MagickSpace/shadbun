@@ -39,6 +39,12 @@ export default defineConfig({
             required: true,
           },
           {
+            type: "string",
+            name: "lang",
+            label: "Language",
+            required: true,
+          },
+          {
             type: 'datetime',
             name: 'date',
             label: 'Date',
